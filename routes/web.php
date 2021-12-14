@@ -23,6 +23,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::post('/blogs/store','BlogsController@store')->name("blogs.store");
 Route::get('/imported-blogs', 'BlogsController@importBlogs')->middleware('admin')->name('ImportedBlogs');
+    Route::get('/my-blogs', 'BlogsController@myBlogs');
 }
 );
 

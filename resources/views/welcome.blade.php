@@ -27,7 +27,7 @@
 
 
                             <div>
-                                <button>  <a href="/sortDesc"> sortDesc</a></button>
+                                <button>  <a href="/sortDesc?type=all"> sortDesc</a></button>
 
 
                                 @if($blogs->isNotEmpty())

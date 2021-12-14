@@ -10,6 +10,8 @@ class BlogsController extends Controller
 {
 
 
+
+
     public function index()
     {
 
@@ -70,12 +72,29 @@ class BlogsController extends Controller
     }
 
 
-    public function sort()
+    public function sort(Request $request)
     {
 
-        $blogs = Blog::orderBy('created_at', 'desc')->get();
+       $type=  $request->input('type');
+       if($type=='all')
+       { $blogs = Blog::orderBy('created_at', 'desc')->get();
+           return view('welcome', compact("blogs"));}
 
-        return view('welcome', compact("blogs"));
+
+       elseif ($type=='myBlogs' && auth()->check())
+           $blogs = Blog::where('user_id',auth()->id())->orderBy('created_at', 'desc')->get();
+
+        return view('myBlogs', compact("blogs"));
+
+
+    }
+
+
+    public function myBlogs(){
+            $blogs=Blog::where("user_id",auth()->id())->get();
+
+
+            return view("myBlogs",compact("blogs"));
 
 
     }

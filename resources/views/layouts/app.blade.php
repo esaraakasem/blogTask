@@ -56,7 +56,7 @@
                         @endif
                     @else
                         <li >
-                            <a  href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a  href="/my-blogs" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
